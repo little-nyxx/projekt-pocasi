@@ -5,4 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+
+$routes->get('/', 'Main::zeme');
+$routes->get('stanice', 'Main::stanice');
+$routes->get('udaje', 'Main::udaje');
