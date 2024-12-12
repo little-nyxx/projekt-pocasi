@@ -9,8 +9,9 @@
 <body>
 <?= $this->include('layout/navbar'); ?>
 
-
+<div class= "container">
 <?= $this->renderSection('content'); ?>
+</div>
 </div>
 </body>
 </html>

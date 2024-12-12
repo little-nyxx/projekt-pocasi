@@ -9,6 +9,7 @@ use App\Models\Bundesland;
 class Main extends BaseController
 {   
     var $zeme;
+    var $stanice;
 
     public function __construct()
     {
@@ -36,5 +37,10 @@ class Main extends BaseController
     public function udaje()
     {
         echo view('udaje');
+    }
+    public function staniceZemi($bundesland) 
+    {
+        $data["stanice"] = $this->stanice->find($bundesland);
+        echo view('stanice', $data);
     }
 }

@@ -6,7 +6,7 @@
     $table->setHeading('Název', 'Zkratka');
 
     foreach($zeme as $row){
-        $table->addRow($row->name, $row->short_name);
+        $table->addRow(anchor('stanice/'.$row->id, $row->name), $row->short_name);
     }
 
     $template = array(
@@ -31,6 +31,7 @@
         );
         
         $table->setTemplate($template);
+        echo $table->generate();
+      
 ?>
-
 <?=$this->endSection(); ?>
