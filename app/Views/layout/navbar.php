@@ -12,15 +12,6 @@
               <li class="nav-item">
                 <?= anchor('zeme', 'Země', $navbar); ?>
               </li>
-              <li class="nav-item">
-                <?= anchor('stanice', 'Stanice', $navbar); ?>
-              </li>
-              <li class="nav-item">
-                <?= anchor('koncerty', 'Koncerty', $navbar); ?>
-              </li>
-              <li class="nav-item">
-                <?= anchor('alba', 'Alba', $navbar); ?>
-              </li>
             </ul>
           </div>
         </div>

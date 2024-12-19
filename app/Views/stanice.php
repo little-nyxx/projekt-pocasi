@@ -2,11 +2,33 @@
 
 <?= $this->section('content'); ?>
 <div class="container">
-        <h1><?= $stanice->place ?></h1>
-        <p><?= $stanice->geo_latitude ?></p>
-        <p><?= $stanice->geo_longtitude ?></p>
-        <p><?= $stanice->height ?></p>
-            
-    </div>
+    <h1>Přehled meteorologických stanic ve spolkové zemi <?= $zeme->name ?></h1>
+    <div class="row">
+    <?php 
+    foreach($stanice as $row){
+      
+        ?>
+        
+        <div class="card col-lg-4">
+        <div class="card-header">
+           <h4> <?= anchor('udaje/'.$row->S_ID, $row->place) ?> </h4>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Zeměpisná šířka <?= $row->geo_latitude?></p>
+          <p class="card-text">Zeměpisná délka <?= $row->geo_longtitude?></p>
+          <p class="card-text">Nadmořská výška <?= $row->height?></p>
+        </div>
+        </div>
+        
+      
+      <?php
+        }
+
+      
+     ?>  
+    </div>    
+</div>  
+    
+    
 
 <?=$this->endSection(); ?>
