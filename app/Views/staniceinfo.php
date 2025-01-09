@@ -1,25 +1,26 @@
 <?= $this->extend('layout/sablona'); ?>
-<h1>Spolkové země Německa</h1>
+
 <?= $this->section('content'); ?>
+<h1>Informace o zemi <?= $zeme->name ?></h1>
 <?php
     $table = new \CodeIgniter\View\Table();
-    $table->setHeading('Název', 'Zkratka');
+    $table->setHeading('Mapa', 'Vlajka');
 
 
     
 
-    foreach($zeme as $row){
-        /*$map = array(
-            'src' => base_url('obrazky/mapy/'.$row->map),
+   
+        $map = array(
+            'src' => base_url('obrazky/mapy/'.$zeme->map),
             'class' => 'img-fluid'
         );
     
         $flag = array(
-            'src' => base_url('obrazky/vlajky/'.$row->flag),
+            'src' => base_url('obrazky/vlajky/'.$zeme->flag),
             'class' => 'img-fluid'
-        );*/
-        $table->addRow(anchor('stanice/'.$row->id, $row->name), $row->short_name, anchor('staniceinfo/'.$row->id, 'Info o zemi'));
-    }
+        );
+        $table->addRow(img($map), img($flag));
+
 
     $template = array(
         'table_open'=> '<table class="table table-bordered">',
@@ -46,4 +47,13 @@
         echo $table->generate();
       
 ?>
+
+
+
+
+
+
+
+
+
 <?=$this->endSection(); ?>

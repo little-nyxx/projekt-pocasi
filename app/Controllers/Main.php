@@ -44,6 +44,13 @@ class Main extends BaseController
         echo view('udaje');
     }
 
+    public function staniceinfo($bundesland)
+    {
+        //$data["zeme"] = $this->zeme->find($bundesland);
+        $zeme = $this->zeme->find($bundesland);
+        $data["zeme"] = $zeme;
+        echo view('staniceinfo', $data);
+    }
 /**
  * @bundesland - id země
  */

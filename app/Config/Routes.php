@@ -8,5 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'Main::zeme');
 $routes->get('stanice/(:num)', 'Main::staniceZemi/$1');
+$routes->get('staniceinfo/(:num)', 'Main::staniceinfo/$1');
 $routes->get('udaje/(:num)', 'Main::udajeStanic/$1');
 $routes->get('zeme', 'Main::zeme');
