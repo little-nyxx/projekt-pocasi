@@ -20,6 +20,7 @@
         );*/
         $table->addRow(anchor('stanice/'.$row->id, $row->name), $row->short_name, anchor('staniceinfo/'.$row->id, 'Info o zemi'));
     }
+    
 
     $template = array(
         'table_open'=> '<table class="table table-bordered">',

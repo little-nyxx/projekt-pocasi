@@ -67,4 +67,10 @@ class Main extends BaseController
         $data["udaje"] = $this->udaje->where("Stations_ID", $stanice)->findAll();
         echo view('udaje', $data);
     }
+
+    public function vsechny()
+    {
+        $data["stanice"] = $this->stanice->findAll();
+        echo view('vsechny');
+    }
 }

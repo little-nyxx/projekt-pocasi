@@ -12,6 +12,9 @@
               <li class="nav-item">
                 <?= anchor('zeme', 'Země', $navbar); ?>
               </li>
+              <li class="nav-item">
+                <?= anchor('vsechny', 'Seznam všech stanic Německa', $navbar); ?>
+              </li>
             </ul>
           </div>
         </div>
