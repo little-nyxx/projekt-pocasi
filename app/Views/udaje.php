@@ -7,8 +7,11 @@
     $table->setHeading('Datum měření', 'Vlhkost', 'Střední vítr', 'Max vítr', 'Délka slunka', 'Střední tlak vzduchu');
 
     foreach($udaje as $row){
-        $table->addRow($row->date, $row->humidity, $row->mid_wind, $row->max_wind, $row->sun_length, $row->mid_air_pressure);
+       // strtotime($row->date);
+        $table->addRow(date("d. m. Y", strtotime($row->date)), $row->humidity, $row->mid_wind, $row->max_wind, $row->sun_length, $row->mid_air_pressure);
+        //strtotime($row->date);
     }
+    
 
     $template = array(
         'table_open'=> '<table class="table table-bordered">',
@@ -33,6 +36,7 @@
         
         $table->setTemplate($template);
         echo $table->generate();
+        echo $pager->links();
       
 ?>
 

@@ -7,12 +7,14 @@ use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\Bundesland;
 use App\Models\Station;
 use App\Models\Data;
+//use CodeIgniter\Pager\PagerRenderer;
 
 class Main extends BaseController
 {   
     var $zeme;
     var $stanice;
     var $udaje;
+    var $staniceVsech;
 
     public function __construct()
     {
@@ -61,16 +63,28 @@ class Main extends BaseController
         $data["stanice"] = $this->stanice->where("bundesland", $bundesland)->findAll();
         echo view('stanice', $data);
     }
+    /**
+     * @stanice - id stanice 
+     */
     public function udajeStanic($stanice)
     {
+        
+        
+
         $data["stanice"] = $this->stanice->find($stanice);
-        $data["udaje"] = $this->udaje->where("Stations_ID", $stanice)->findAll();
+        //$data["udaje"] = $this->udaje->where("Stations_ID", $stanice)->findAll();
+        $data["udaje"] = $this->udaje->where("Stations_ID", $stanice)->orderBy("date", "asc")->paginate(25);
+        //$data = $this->stanice->where('Stations_ID', $stanice)->orderBy('date', 'asc')->paginate(25);
+        $data["pager"] = $this->udaje->pager;
         echo view('udaje', $data);
     }
 
     public function vsechny()
     {
-        $data["stanice"] = $this->stanice->findAll();
-        echo view('vsechny');
+
+        $staniceVsech = $this->stanice->join('bundesland','bundesland.id=station.bundesland','inner')->orderBy("place", "asc")->findAll();
+        $data["staniceVsech"] = $staniceVsech;
+        //$data["flag"] = $this->zeme->findAll("flag");
+        echo view('vsechny', $data);
     }
 }
