@@ -20,7 +20,7 @@
         <div class="card-body">
           <p class="card-text">Zeměpisná šířka <?= $row->geo_latitude?></p>
           <p class="card-text">Zeměpisná délka <?= $row->geo_longtitude?></p>
-          <p class="card-text">Nadmořská výška <?= $row->height?></p>
+          <p class="card-text">Nadmořská výška <?= $row->height?> m n. m.</p>
         </div>
         </div>
         
