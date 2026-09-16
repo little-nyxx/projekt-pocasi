@@ -29,7 +29,7 @@ class Database extends Config
         'hostname'     => 'localhost',
         'username'     => 'root',
         'password'     => '',
-        'database'     => 'miskova',
+        'database'     => 'ozzak',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => 'pocasi_',
         'pConnect'     => false,

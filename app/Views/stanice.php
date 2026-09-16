@@ -7,7 +7,7 @@
     <?php 
     foreach($stanice as $row){
       $flag = array(
-        'src' => base_url('obrazky/vlajky/'.$row->flag),
+       // 'src' => base_url('obrazky/vlajky/'.$row->flag),
         'class' => 'card-img-bottom'
     );
       

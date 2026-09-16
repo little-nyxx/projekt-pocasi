@@ -11,12 +11,12 @@
 
    
         $map = array(
-            'src' => base_url('obrazky/mapy/'.$zeme->map),
+          //  'src' => base_url('obrazky/mapy/'.$zeme->map),
             'class' => 'img-fluid'
         );
     
         $flag = array(
-            'src' => base_url('obrazky/vlajky/'.$zeme->flag),
+           // 'src' => base_url('obrazky/vlajky/'.$zeme->flag),
             'class' => 'img-fluid'
         );
         $table->addRow(img($map), img($flag));
