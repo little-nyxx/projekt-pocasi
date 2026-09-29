@@ -81,7 +81,10 @@ class Main extends BaseController
 
     public function deleteUdaje($id)
     {
-        $this->udaje->delete($id);
+        $this->udaje
+            ->builder()
+            ->where('id', $id)
+            ->update(['deleted_at' => date('Y-m-d H:i:s')]);
 
         return redirect()->back();
     }
@@ -95,11 +98,19 @@ class Main extends BaseController
             return redirect()->back();
         }
 
-        $this->udaje
+        $ids = $this->udaje
+            ->select('id')
             ->where('Stations_ID', $staniceId)
             ->where('MONTH(date)', $month, false)
             ->where('YEAR(date)', $year, false)
-            ->delete();
+            ->findAll();
+
+        if ($ids !== []) {
+            $this->udaje
+                ->builder()
+                ->whereIn('id', array_map(static fn ($row) => $row->id, $ids))
+                ->update(['deleted_at' => date('Y-m-d H:i:s')]);
+        }
 
         return redirect()->to(site_url('udaje/' . $staniceId));
     }
