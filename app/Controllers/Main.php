@@ -79,6 +79,31 @@ class Main extends BaseController
         echo view('udaje', $data);
     }
 
+    public function deleteUdaje($id)
+    {
+        $this->udaje->delete($id);
+
+        return redirect()->back();
+    }
+
+    public function deleteUdajeMesic($staniceId)
+    {
+        $month = (int) $this->request->getPost('month');
+        $year = (int) $this->request->getPost('year');
+
+        if ($month < 1 || $month > 12 || $year < 1900 || $year > 2100) {
+            return redirect()->back();
+        }
+
+        $this->udaje
+            ->where('Stations_ID', $staniceId)
+            ->where('MONTH(date)', $month, false)
+            ->where('YEAR(date)', $year, false)
+            ->delete();
+
+        return redirect()->to(site_url('udaje/' . $staniceId));
+    }
+
     public function vsechny()
     {
 
